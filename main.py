@@ -2,6 +2,7 @@ import urllib.request as request
 import urllib.error
 import time
 import logging
+import argparse
 
 logger = logging.getLogger(__name__)
 
@@ -59,9 +60,17 @@ def avg_speed():
     return sum(avg_list) / len(avg_list)
 
 def main():
+    parser = argparse.ArgumentParser(description='Измерение скорости интернета')
+    parser.add_argument(
+        'url',
+        nargs='?',
+        default='https://github.com/szalony9szymek/large/releases/download/free/large',
+        help='URL для тестирования (по умолчанию: тестовый файл 2GB)'
+    )
+    args = parser.parse_args()
     i = 0
     while i < 10:
-        send_request(url='https://github.com/szalony9szymek/large/releases/download/free/large')
+        send_request(url=args.url)
         i += 1
     print(f'Скорость интернета: {avg_speed():.2f} Мбит/с')
 
