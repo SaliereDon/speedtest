@@ -60,7 +60,7 @@ def avg_speed():
 
 def main():
     i = 0
-    while i < 3:
+    while i < 10:
         send_request(url='https://github.com/szalony9szymek/large/releases/download/free/large')
         i += 1
     print(f'Скорость интернета: {avg_speed():.2f} Мбит/с')
