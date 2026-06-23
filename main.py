@@ -1,7 +1,6 @@
 import urllib.request as request
 import urllib.error
 import time
-import argparse
 import logging
 
 logger = logging.getLogger(__name__)
